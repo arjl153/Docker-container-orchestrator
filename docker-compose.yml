@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  #acts:
+  #  build: ./docker-acts/
+  #  image: acts
+  #  environment:
+  #    - TEAM_ID=CC_030_049_056_057
+  #  command: python docker-acts/sla_website/manage.py runserver 0.0.0.0:8000
+  #  volumes:
+  #    - .:/code
+  #  ports:
+  #    - "8001:8000"
+  #acts1:
+  #  build: ./docker-acts1/
+  #  image: acts
+  #  environment:
+  #    - TEAM_ID=CC_030_049_056_057
+  #  command: python docker-acts/sla_website/manage.py runserver 0.0.0.0:8000
+  #  volumes:
+  #    - ./:/code
+  #  ports:
+  #    - "8002:8000"
+  orchestrator:
+    build: ./orchestrator/
+    image: acts
+    environment:
+      - TEAM_ID=CC_030_049_056_057
+    command: python orchestrator/sla_website/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "80:8000"

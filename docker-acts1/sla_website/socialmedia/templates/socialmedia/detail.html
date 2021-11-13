@@ -1,0 +1,34 @@
+{% extends 'socialmedia/base.html' %}
+
+{% block title %}
+	{{act}}
+{% endblock %}
+
+
+{% block body %}
+	<h2>{{ act }}</h2>
+	
+	{% if act.post_set.all %}
+		<ul>
+			{% for post in act.post_set.all reversed %}
+			<pre>
+				ID: {{post.id}}
+
+				ImageString: {{post.image}}
+
+				Caption: {{post.caption}}
+
+				Time: {{post.timestamp}}
+
+				User: {{post.user}}
+
+			</pre>
+			
+			{% endfor %}
+		</ul>
+	{% else %}
+		<h3>No acts to show!</h3>
+	{% endif %}
+{% endblock %}
+
+

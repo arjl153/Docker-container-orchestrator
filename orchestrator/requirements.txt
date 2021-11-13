@@ -1,0 +1,5 @@
+docker
+requests
+Django==2.2a1
+djangorestframework
+django-rest-auth
